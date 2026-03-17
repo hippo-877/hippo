@@ -1,9 +1,7 @@
-<svg width="512" height="120" viewBox="0 0 512 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="120" rx="16" fill="#0F172A"/>
-  <rect x="20" y="22" width="76" height="76" rx="10" fill="#1E293B"/>
-  <path d="M40 41H76V77H40V41Z" fill="#2563EB"/>
-  <path d="M48 49H68V69H48V49Z" fill="#0F172A"/>
-  <circle cx="57.5" cy="58.5" r="4.5" fill="#F59E0B"/>
-  <text x="114" y="58" fill="#E2E8F0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700">HIPPO SOC AI</text>
-  <text x="114" y="84" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="500">Engineering Intelligence Platform</text>
+<svg width="1024" height="542" viewBox="0 0 1024 542" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="542" fill="#000000"/>
+  <text x="16" y="330" fill="#E6E1E3" font-family="Arial, Helvetica, sans-serif" font-size="290" font-weight="400" letter-spacing="2">mido</text>
+  <path d="M304 98 C360 46, 470 46, 526 98 L495 143 C452 108, 378 108, 334 143 Z" fill="#F2E71E"/>
+  <text x="930" y="196" fill="#E6E1E3" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="400">®</text>
+  <text x="160" y="500" fill="#E6E1E3" font-family="Noto Sans SC, Microsoft YaHei, PingFang SC, Arial" font-size="120" font-weight="500" letter-spacing="18">米豆科技</text>
 </svg>
