@@ -10,22 +10,27 @@
    ```
 3. 脚本会自动执行：
    - 检查 Node / npm
-   - 安装依赖 `npm install`
-   - 启动开发服务 `npm run dev`
-4. 终端出现 Vite 地址后，用浏览器打开（通常是 `http://localhost:5173`）。
+   - 安装依赖 `npm install --no-fund --no-audit`
+   - 启动开发服务并固定地址：`http://127.0.0.1:5173`
+4. 脚本会自动尝试打开浏览器；如果没自动打开，请手动访问：
+   - `http://127.0.0.1:5173`
 
-> 这个脚本现在会在结束前 `pause`，不会“秒退”，你可以看清具体报错。
+> 这个脚本会在结束前 `pause`，不会“秒退”，你可以看清具体报错。
 
 ---
 
-## 方式二：手工命令（便于排错）
+## 如果卡在 Node/NPM 版本后面
 
-在项目根目录执行：
+这通常表示正在执行依赖安装（首次运行可能较慢）。
+
+请改用 CMD/PowerShell 手工执行，便于看完整日志：
 
 ```bat
-npm install
-npm run dev
+npm install --no-fund --no-audit
+npm run dev -- --host 127.0.0.1 --port 5173 --strictPort
 ```
+
+然后浏览器打开：`http://127.0.0.1:5173`
 
 ---
 
@@ -33,5 +38,5 @@ npm run dev
 
 - **双击 `index.html` 空白**：这是 React+Vite 工程，必须通过开发服务器运行，不能直接双击 HTML。
 - **窗口秒退/看不到报错**：请在 CMD 或 PowerShell 中执行 `scripts\\start_windows.bat`，可完整查看日志。
-- **端口被占用**：Vite 会提示可用新端口，按提示地址访问即可。
+- **端口被占用**：脚本使用 `--strictPort`，如 5173 被占用会明确报错。请关闭占用进程后重试。
 - **依赖安装失败**：检查网络/代理，或切换 npm 源后重试。

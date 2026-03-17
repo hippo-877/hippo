@@ -4,13 +4,17 @@ setlocal enabledelayedexpansion
 cd /d "%~dp0\.."
 title SoC AI Platform - Windows Launcher
 
+set "DEV_HOST=127.0.0.1"
+set "DEV_PORT=5173"
+
 echo ==============================================
 echo SoC AI Platform - Local Dev Launcher (Windows)
 echo ==============================================
 echo Project Dir: %cd%
+echo Target URL : http://%DEV_HOST%:%DEV_PORT%
 echo.
 
-echo [1/5] Checking Node.js...
+echo [1/6] Checking Node.js...
 where node >nul 2>nul
 if errorlevel 1 (
   echo ERROR: Node.js is not installed or not in PATH.
@@ -18,7 +22,7 @@ if errorlevel 1 (
   goto :fail
 )
 
-echo [2/5] Checking npm...
+echo [2/6] Checking npm...
 where npm >nul 2>nul
 if errorlevel 1 (
   echo ERROR: npm is not available in PATH.
@@ -26,13 +30,14 @@ if errorlevel 1 (
   goto :fail
 )
 
-echo [3/5] Node/NPM versions:
+echo [3/6] Node/NPM versions:
 node -v
 npm -v
 
 echo.
-echo [4/5] Installing dependencies...
-call npm install
+echo [4/6] Installing dependencies...
+echo (This may take a while on first run.)
+call npm install --no-fund --no-audit
 if errorlevel 1 (
   echo.
   echo ERROR: npm install failed.
@@ -41,9 +46,12 @@ if errorlevel 1 (
 )
 
 echo.
-echo [5/5] Starting dev server...
-echo Open the URL shown below in your browser ^(usually http://localhost:5173^).
-call npm run dev
+echo [5/6] Dependencies ready.
+
+echo [6/6] Starting dev server...
+echo Expected URL: http://%DEV_HOST%:%DEV_PORT%
+start "" "http://%DEV_HOST%:%DEV_PORT%"
+call npm run dev -- --host %DEV_HOST% --port %DEV_PORT% --strictPort
 set EXIT_CODE=%errorlevel%
 
 echo.
